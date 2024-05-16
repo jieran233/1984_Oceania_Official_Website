@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大洋国政府官方网站</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ff0000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .fill-x-y {
+            width: 100%;
+            height: 100%;
+        }
+
+        .fill-x {
+            width: 100%;
+        }
+
+        .fill-y {
+            height: 100%;
+        }
+
+        .hero-container {
+            background-image: url('images/1984-Big-Brother.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px #000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-blur {
+            backdrop-filter: blur(0.5em);
+        }
+
+        .hero-content {
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+        }
+        
+        .hero-image {
+            background-image: url('images/1984-Big-Brother_.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: calc(500px / 257 * 180);
+        }
+
+        #heroImageLocator {
+            margin: auto;
+        }
+
+        #heroImageMask {
+            height: 500px;
+            position: absolute;
+            z-index: 514;
+            /* background: rgba(255, 255, 255, 0.5);
+            background-blend-mode: overlay; */
+        }
+
+        #eyesWrapper {
+            height: 100%;
+            /* position: relative;
+            width: 800px;
+            height: 600px;
+            margin: 50px auto;
+            background: url('https://www.arc.id.au/Images/Dali-52c-face.gif') no-repeat center center;
+            background-size: cover; */
+        }
+
+        .eye {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            /* background: white; */
+            z-index: 114;
+        }
+
+        .pupil {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            /* background: black; */
+            background-image: url("images/eye.svg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #leftEye {
+            top: 150px;
+            left: 250px;
+        }
+
+        #rightEye {
+            top: 150px;
+            left: 450px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .content div {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .text-container span {
+            margin: 0;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .text-container p:not(:last-child) {
+            margin-right: 100px;
+            /* 设置文本之间的间距 */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="font-weight:1000">大洋国政府官方网站</h1>
+        <div class="text-container">
+            <span>战争即和平</span>
+            <span>自由即奴役</span>
+            <span>无知即力量</span>
+        </div>
+    </header>
+    <nav>
+        <a href="#home">首页</a>
+        <a href="#government">政府机构</a>
+        <a href="#news">新闻与公告</a>
+        <a href="#activities">爱国者活动</a>
+        <a href="#thought-police">思想警察</a>
+        <a href="#resources">社会资源</a>
+        <a href="#history">历史修正</a>
+        <a href="#contact">联系我们</a>
+    </nav>
+    <div id="heroImageMask" class="hero-image"></div>
+    <div id="eyesWrapper" class="fill-y">
+        <div id="leftEye" class="eye">
+            <div id="leftPupil" class="pupil"></div>
+        </div>
+        <div id="rightEye" class="eye">
+            <div id="rightPupil" class="pupil"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hero-container">
+            <div class="hero-blur fill-x-y">
+                <div class="hero-content fill-y">
+                    <div id="heroImageLocator" class="hero-image fill-y"></div>
+                    <!-- <p>忠于老大哥，忠于党</p> -->
+                    <!-- <p style="letter-spacing: 0.3rem;">老大哥正在看着你</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div>
+                <h2>最新公告</h2>
+                <p>政府最新的政策和命令，重要事件的报道。</p>
+            </div>
+            <div>
+                <h2>两分钟仇恨</h2>
+                <p>鼓励公众参与每天的仇恨活动，提供时间表和场地。</p>
+            </div>
+            <div>
+                <h2>思罪举报</h2>
+                <p>提供举报同事、邻居或亲人不忠行为的渠道。</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 1984 大洋国政府 - 保留所有权利</p>
+    </footer>
+</body>
+<script src="renderRect.js"></script>
+<script>
+    window.onload = function () {
+        initPos();
+
+        window.addEventListener('resize', initPos);
+        window.addEventListener('orientationchange', initPos);
+        // window.addEventListener('scroll', moveEyes);
+
+        window.addEventListener('mousemove', moveEyes);
+    }
+
+    function initPos(event) {
+        const heroImageLocator = document.getElementById('heroImageLocator');
+        const heroImageLocatorRect = heroImageLocator.getBoundingClientRect();
+        // window.markRect(heroImageLocatorRect);
+        console.log(heroImageLocatorRect);
+
+        const heroImageMask = document.getElementById('heroImageMask');
+
+        heroImageMask.style.left = `${heroImageLocatorRect.left}px`;
+        heroImageMask.style.top = `${heroImageLocatorRect.top}px`;
+
+        const leftEye = document.getElementById('leftEye');
+        const rightEye = document.getElementById('rightEye');
+        const leftPupil = document.getElementById('leftPupil');
+        const rightPupil = document.getElementById('rightPupil');
+
+        const BigBrotherImgWidth = 180;
+        const BigBrotherImgHeight = 257;
+
+
+        leftEye.style.width = leftEye.style.height = rightEye.style.width = rightEye.style.height = `${heroImageLocatorRect.width / BigBrotherImgWidth * 20}px`;
+        // leftEye.style.width = rightEye.style.width = `${heroImageLocatorRect.width / BigBrotherImgWidth * 24}px`;
+        // leftEye.style.height = rightEye.style.height = `${heroImageLocatorRect.width / BigBrotherImgWidth * 20}px`;
+
+        leftPupil.style.width = leftPupil.style.height = rightPupil.style.width = rightPupil.style.height = `${heroImageLocatorRect.width / BigBrotherImgWidth * 14}px`;
+
+        leftEye.style.left = `${heroImageLocatorRect.left + heroImageLocatorRect.width / BigBrotherImgWidth * 58}px`;
+        leftEye.style.top = `${heroImageLocatorRect.top + heroImageLocatorRect.height / BigBrotherImgHeight * 112 - parseFloat(leftEye.style.height) / 2}px`;
+
+        rightEye.style.left = `${heroImageLocatorRect.left + heroImageLocatorRect.height / BigBrotherImgHeight * 180 - heroImageLocatorRect.width / BigBrotherImgWidth * 52 - rightEye.getBoundingClientRect().width}px`;
+        rightEye.style.top = `${heroImageLocatorRect.top + heroImageLocatorRect.height / BigBrotherImgHeight * 112 - parseFloat(leftEye.style.height) / 2}px`;
+    }
+
+    function moveEyes(event) {
+        const wrapper = document.getElementById('eyesWrapper');
+        const wrapperRect = wrapper.getBoundingClientRect();
+
+        const eyeRadius = leftEye.getBoundingClientRect().width / 2;
+        const pupilRadius = leftPupil.getBoundingClientRect().width / 2;
+
+        function getPosition(element) {
+            var xPosition = 0;
+            var yPosition = 0;
+
+            while (element) {
+                xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+                yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+                element = element.offsetParent;
+            }
+            return { x: xPosition, y: yPosition };
+        }
+
+        function movePupil(eye, pupil, event) {
+            const eyePos = getPosition(eye);
+            const centerX = eyePos.x + eyeRadius;
+            const centerY = eyePos.y + eyeRadius;
+            const dx = event.pageX - centerX;
+            const dy = event.pageY - centerY;
+            const R = Math.sqrt(dx * dx + dy * dy);
+            const r = eyeRadius - pupilRadius;
+            const x = (R < r) ? dx : dx * r / R;
+            const y = (R < r) ? dy : dy * r / R;
+            pupil.style.left = x + eyeRadius - pupilRadius + 'px';
+            pupil.style.top = y + eyeRadius - pupilRadius + 'px';
+        }
+
+        movePupil(leftEye, leftPupil, event);
+        movePupil(rightEye, rightPupil, event);
+    }
+</script>
+
+</html>

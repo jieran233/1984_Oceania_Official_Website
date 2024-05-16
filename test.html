@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xeyes Implementation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+        #wrapper {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            margin: 50px auto;
+            background: url('https://www.arc.id.au/Images/Dali-52c-face.gif') no-repeat center center;
+            background-size: cover;
+        }
+        .eye {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: white;
+        }
+        .pupil {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: black;
+        }
+        #leftEye {
+            top: 150px;
+            left: 250px;
+        }
+        #rightEye {
+            top: 150px;
+            left: 450px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="leftEye" class="eye">
+            <div id="leftPupil" class="pupil"></div>
+        </div>
+        <div id="rightEye" class="eye">
+            <div id="rightPupil" class="pupil"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', moveEyes);
+
+        function moveEyes(event) {
+            const leftEye = document.getElementById('leftEye');
+            const rightEye = document.getElementById('rightEye');
+            const leftPupil = document.getElementById('leftPupil');
+            const rightPupil = document.getElementById('rightPupil');
+            
+            const wrapper = document.getElementById('wrapper');
+            const wrapperRect = wrapper.getBoundingClientRect();
+            
+            const eyeRadius = 50;
+            const pupilRadius = 15;
+
+            function getPosition(element) {
+                var xPosition = 0;
+                var yPosition = 0;
+
+                while (element) {
+                    xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+                    yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+                    element = element.offsetParent;
+                }
+                return { x: xPosition, y: yPosition };
+            }
+
+            function movePupil(eye, pupil, event) {
+                const eyePos = getPosition(eye);
+                const centerX = eyePos.x + eyeRadius;
+                const centerY = eyePos.y + eyeRadius;
+                const dx = event.pageX - centerX;
+                const dy = event.pageY - centerY;
+                const R = Math.sqrt(dx * dx + dy * dy);
+                const r = eyeRadius - pupilRadius;
+                const x = (R < r) ? dx : dx * r / R;
+                const y = (R < r) ? dy : dy * r / R;
+                pupil.style.left = x + eyeRadius - pupilRadius + 'px';
+                pupil.style.top = y + eyeRadius - pupilRadius + 'px';
+            }
+
+            movePupil(leftEye, leftPupil, event);
+            movePupil(rightEye, rightPupil, event);
+        }
+    </script>
+</body>
+</html>

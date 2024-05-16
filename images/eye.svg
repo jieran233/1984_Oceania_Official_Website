@@ -1,0 +1,19 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- 巩膜 -->
+    <!-- <circle cx="100" cy="100" r="90" fill="blue" /> -->
+
+    <!-- 虹膜，使用径向渐变 -->
+    <defs>
+        <radialGradient id="irisGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="30%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+            <stop offset="95%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+        </radialGradient>
+    </defs>
+    <circle cx="100" cy="100" r="60" fill="url(#irisGradient)" />
+
+    <!-- 瞳孔 -->
+    <circle cx="100" cy="100" r="27" fill="black" />
+
+    <!-- 高光 -->
+    <circle cx="82" cy="84" r="9" fill="rgba(255,255,255,.8)" />
+</svg>
