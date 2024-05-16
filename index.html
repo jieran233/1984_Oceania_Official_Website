@@ -235,7 +235,8 @@
             </div>
         </div>
     </div>
-    <footer>
+    <div id="footerPlaceholder"></div>
+    <footer id="footer">
         <p>&copy; 1984 大洋国政府 - 保留所有权利</p>
     </footer>
 </body>
@@ -252,6 +253,8 @@
     }
 
     function initPos(event) {
+        document.getElementById('footerPlaceholder').style.height = `${document.getElementById('footer').getBoundingClientRect().height}px`;
+
         const heroImageLocator = document.getElementById('heroImageLocator');
         const heroImageLocatorRect = heroImageLocator.getBoundingClientRect();
         // window.markRect(heroImageLocatorRect);
